@@ -1,25 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
  
-let form = findForm();
-form.addEventListener("submit", addListElement);
+  let form = findForm();
+  form.addEventListener("submit", addListElement);
 
 });
+
+////////// functions //////////
 
 function findForm(){
   return document.getElementById("create-task-form");
 }
 
 function grabInputs(){
-  var input = document.getElementById("new-task-description").value;
-  var user = document.getElementById("new-user-description").value;
-  var duration = document.getElementById("new-duration-description").value;
-  var dueDate = document.getElementById("new-dueDate-description").value; 
+  const input = document.getElementById("new-task-description").value;
+  const user = document.getElementById("new-user-description").value;
+  const duration = document.getElementById("new-duration-description").value;
+  const dueDate = document.getElementById("new-dueDate-description").value; 
 
   return `${input}, ${user}, ${duration}, ${dueDate}`;
 }
 
 function priorityColors(element){
-  var priority = document.getElementById("task-priority").value;
+  const priority = document.getElementById("task-priority").value;
   console.log(priority);
   if(priority === "High"){
     element.style = "color:red;";
@@ -32,8 +34,8 @@ function priorityColors(element){
 
 function addListElement(event){
   event.preventDefault();
-  let liElement = document.createElement("li");
-  let ulElement = document.getElementById("tasks");
+  const liElement = document.createElement("li");
+  const ulElement = document.getElementById("tasks");
   ulElement.appendChild(liElement);
   
   liElement.innerText = grabInputs();
