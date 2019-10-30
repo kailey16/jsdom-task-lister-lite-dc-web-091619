@@ -32,21 +32,6 @@ function priorityColors(element){
   }
 }
 
-function addListElement(event){
-  event.preventDefault();
-  const liElement = document.createElement("li");
-  const ulElement = document.getElementById("tasks");
-  ulElement.appendChild(liElement);
-  
-  liElement.innerText = grabInputs();
-  
-  priorityColors(liElement);
-
-  liElement.addEventListener("click", deleteMe)
-  liElement.addEventListener("contextmenu", editMe)
-  findForm().reset();
-}
-
 function deleteMe(event){
   event.target.remove()
   console.log("Clicked");
@@ -55,5 +40,20 @@ function deleteMe(event){
 function editMe(){
   event.target.innerText = grabInputs();
   priorityColors(event.target);
+  findForm().reset();
+}
+
+function addListElement(event){
+  event.preventDefault();
+  // Creating new li element
+  const ulElement = document.getElementById("tasks");
+  const liElement = document.createElement("li");
+  ulElement.appendChild(liElement);
+  liElement.innerText = grabInputs();
+  // Adding color style to the li element
+  priorityColors(liElement);
+  // Adding event listeners to do DELETE and EDIT
+  liElement.addEventListener("click", deleteMe)
+  liElement.addEventListener("contextmenu", editMe)
   findForm().reset();
 }
