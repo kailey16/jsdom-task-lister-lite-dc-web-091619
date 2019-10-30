@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // your code here
-
+ 
 let form = findForm();
 form.addEventListener("submit", addListElement);
 
@@ -16,7 +15,7 @@ function grabInputs(){
   var duration = document.getElementById("new-duration-description").value;
   var dueDate = document.getElementById("new-dueDate-description").value; 
 
-  return `${input}, ${user}, ${duration}, ${dueDate}`;;
+  return `${input}, ${user}, ${duration}, ${dueDate}`;
 }
 
 function priorityColors(element){
@@ -29,7 +28,6 @@ function priorityColors(element){
   }else if(priority === "Low"){
     element.style = "color:blue;"
   }
-
 }
 
 function addListElement(event){
@@ -48,7 +46,6 @@ function addListElement(event){
 }
 
 function deleteMe(event){
-
   event.target.remove()
   console.log("Clicked");
 }
